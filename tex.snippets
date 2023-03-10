@@ -1,0 +1,87 @@
+global !p
+
+options = ('enumerate', 'gather', 'gather*', 'itemize', 'align', 'align*', 'document', 'cases')
+
+def complete(t, opts):
+	if t:
+		opts = [m[len(t):] for m in opts if m.startswith(t) ]
+		if len(opts) == 1:
+			return opts[0]
+		return '(' + '|'.join(opts) + ')'
+endglobal
+
+snippet beg "begin environment" bA
+\\begin{$1`!p
+snip.rv = complete(t[1], options)
+`}
+	$2
+\\end{$1`!p
+snip.rv = complete(t[1], options)
+`}$0
+endsnippet
+
+snippet dm "Display Math" wA
+\\begin{gather*}
+	$1
+\\end{gather*}
+$0
+endsnippet
+
+snippet im "Inline Math" wA
+$$1$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
+endsnippet
+
+snippet '([A-Za-z])(\d)' "auto subscript2" wrA
+`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}$0
+endsnippet
+
+snippet sr "^2" iA
+^2
+endsnippet
+
+snippet cb "^3" iA
+^3
+endsnippet
+
+snippet td "superscript" iA
+^{$1}$0
+endsnippet
+
+snippet // "Fraction" iA
+\\frac{${1:${VISUAL}}}{$2}$0
+endsnippet
+
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wrA
+\\frac{`!p snip.rv = match.group(1)`}{$1}$0
+endsnippet
+
+priority 100
+snippet "(\\?\w+)vec" "vector postfix" riA
+\vec{`!p snip.rv=match.group(1)`}
+endsnippet
+
+snippet "(\\?\w+)hat" "hat postfix" riA
+\hat{`!p snip.rv=match.group(1)`}
+endsnippet
+
+snippet "(\\?\w+)bar" "bar postfix" riA
+\bar{`!p snip.rv=match.group(1)`}
+endsnippet
+
+priority 1
+snippet vec "vector prefix" iA
+\vec{$1}$0
+endsnippet
+
+snippet hat "hat prefix" iA
+\hat{$1}$0
+endsnippet
+
+snippet bar "bar prefix" iA
+\bar{$1}$0
+endsnippet
