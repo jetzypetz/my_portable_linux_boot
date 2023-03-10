@@ -1,32 +1,41 @@
-inoremap kk <Esc>
-map <Up> NOP
-map <Right> NOP
-map <Left> NOP
-map <Down> NOP
-set number
-set syntax=on
+call plug#begin()
 
-" vundle
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-call vundle#end()
-filetype plugin indent on
+Plug 'SirVer/ultisnips'
+Plug 'lervag/vimtex'
+Plug 'dylanaraps/wal'
+Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
+Plug 'vim-scripts/scrollfix'
+Plug 'prurigro/vim-markdown-concealed'
 
-" ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-c>"
-let g:UltiSnipsEditSplit="vertical"
-
-" vim-plug
-call plug#begin('~/.vim/plugged')
-Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
-" nord
-colorscheme nord
+let g:UltiSnipsSnippetDirectories = '~/.vim/'
+let g:UltiSnipsEditSplit = 'vertical'
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+let g:vimtex_view_method = 'zathura'
+
+set conceallevel=2
+let g:tex_conceal='abdmg'
+
+colorscheme wal
+set background=dark
+
+let g:scrollinfo=0
+
+imap <Space><Space><Space> <Esc>
+imap qqw <Esc>:wq<cr>
+imap qqr <Esc>:w<cr>i<Right>
+
+set ruler
+set relativenumber
+
+set visualbell
+set t_vb=
+
+set tabstop=4
+
+let &t_SI = "\e[4"
+let &t_EI = "\e[4"
