@@ -26,8 +26,8 @@ set background=dark
 let g:scrollinfo=0
 
 imap <Space><Space><Space> <Esc>
-imap qqw <Esc>:wq<cr>
-imap qqr <Esc>:w<cr>i<Right>
+imap <Space><Space>w <Esc>:wq<cr>
+imap <Space><Space>r <Esc>:w<cr>i<Right>
 
 set ruler
 set relativenumber
@@ -39,5 +39,3 @@ set tabstop=4
 
 let &t_SI = "\e[4"
 let &t_EI = "\e[4"
-
-hello
