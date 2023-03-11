@@ -39,3 +39,5 @@ set tabstop=4
 
 let &t_SI = "\e[4"
 let &t_EI = "\e[4"
+
+hello
