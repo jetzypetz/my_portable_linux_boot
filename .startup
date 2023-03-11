@@ -1,0 +1,10 @@
+#!/bin/bash
+
+rm ~/.bashrc
+ln -s ~/my_portable_linux_boot/.bashrc ~/.bashrc
+
+rm ~/.vimrc
+ln -s ~/my_portable_linux_boot/.vimrc ~/.vimrc
+
+rm ~/.vim/tex.snippets
+ln -s ~/my_portable_linux_boot/tex.snippets ~/.vim/tex.snippets

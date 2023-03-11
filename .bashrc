@@ -124,3 +124,5 @@ git add .
 git commit -m "main"
 git push
 )'
+
+chmod +x ~/my_portable_linux_boot/.startup
