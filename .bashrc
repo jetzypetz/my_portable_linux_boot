@@ -125,4 +125,10 @@ git commit -m "main"
 git push
 )'
 
+alias gitpull='(
+cd ~/my_portable_linux_boot
+git pull
+./.startup
+)'
+
 chmod +x ~/my_portable_linux_boot/.startup
