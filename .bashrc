@@ -120,23 +120,15 @@ wal --theme base16-nord
 
 function gitsend() {
 		cd ~/my_portable_linux_boot
-		git clone "https://github.com/jetzypetz/my_portable_linux_boot" ~/.checkin
-		if cmp -s ~/.checkin/.checkv ~.checkin/.vimrc; then
-				git add .
-				git commit -m "main"
-				git push
-		else
-				echo "The files on your github have already been changed from somewhere else. By proceeding you will be removing those other changes"
-		fi
+		git add .
+		git commit -m "main"
+		git push
 }
 
-alias gitpull='(
-cd ~/my_portable_linux_boot
-git pull
-./.startup
-cp ~/.vimrc ~/.checkin/.checkv
-)'
+function gitpull() {
+		cd ~/my_portable_linux_boot
+		git pull
+		./.startup
+}
 
 chmod +x ~/my_portable_linux_boot/.startup
-
-ciao
