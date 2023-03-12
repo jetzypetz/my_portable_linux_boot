@@ -138,3 +138,5 @@ cp ~/.vimrc ~/.checkin/.checkv
 )'
 
 chmod +x ~/my_portable_linux_boot/.startup
+
+hello
