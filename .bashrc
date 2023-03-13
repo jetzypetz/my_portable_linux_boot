@@ -132,3 +132,11 @@ function gitpull() {
 }
 
 chmod +x ~/my_portable_linux_boot/.startup
+
+function math() {
+		vim ~/scuola/maestosi/matematica/integrali.tex
+}
+
+function fis() {
+		vim ~/scuola/maestosi/fisica/relativita.md
+}
