@@ -5,7 +5,6 @@ Plug 'lervag/vimtex'
 Plug 'dylanaraps/wal'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 Plug 'vim-scripts/scrollfix'
-Plug 'prurigro/vim-markdown-concealed'
 
 call plug#end()
 
@@ -19,6 +18,8 @@ let g:vimtex_view_method = 'zathura'
 
 set conceallevel=2
 let g:tex_conceal='abdmg'
+autocmd FileType markdown setlocal conceallevel=0
+autocmd FileType markdown setlocal concealcursor=
 
 colorscheme wal
 set background=dark

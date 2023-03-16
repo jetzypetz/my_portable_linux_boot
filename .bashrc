@@ -119,7 +119,6 @@ fi
 wal --theme base16-nord
 
 function gitsend() {
-		cd ~/my_portable_linux_boot
 		git add .
 		git commit -m "main"
 		git push
@@ -134,9 +133,20 @@ function gitpull() {
 chmod +x ~/my_portable_linux_boot/.startup
 
 function math() {
-		vim ~/scuola/maestosi/matematica/integrali.tex
+		vim ~/scuola/maestosi/matematica/integrali/integrali.tex
 }
 
 function fis() {
 		vim ~/scuola/maestosi/fisica/relativita.md
+}
+
+function cpgt() {
+	cd
+    file_to_copy="gittoken"
+    if command -v xclip >/dev/null 2>&1; then
+        xclip -sel clip < "$file_to_copy"
+        echo "Copied $file_to_copy to clipboard"
+    else
+        echo "Error: xclip not found. Unable to copy contents to clipboard." >&2
+    fi
 }
