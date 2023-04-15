@@ -32,6 +32,7 @@ imap <Space><Space>r <Esc>:w<cr>i<Right>
 
 set ruler
 set relativenumber
+set linebreak
 
 set visualbell
 set t_vb=
